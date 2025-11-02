@@ -1,13 +1,13 @@
 ﻿namespace EstudosApiRest.Models
 {
-    public class Person
+    public class PersonModel
     {
-        public Person(string name)
+        public PersonModel(string name)
         {
             Name = name;
             Id = Guid.NewGuid();
         }
         public Guid Id { get; init; }
-        public required string Name { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -17,7 +17,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-Person.PersonRoutes(app);
+PersonRoute.PersonRoutes(app);
 
 app.UseHttpsRedirection();
 app.Run();
