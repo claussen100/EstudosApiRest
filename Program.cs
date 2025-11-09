@@ -1,8 +1,10 @@
+using EstudosApiRest.Data;
 using EstudosApiRest.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<AppDbContext>();
 
 var app = builder.Build();
 
