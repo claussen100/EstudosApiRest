@@ -1,46 +1,102 @@
-# Construindo uma Minimal API RESTful
+# Minimal API RESTful em .NET — Estudo e Prática
 
-Este projeto foi criado com o objetivo de estudar e praticar o desenvolvimento de APIs REST em C#, utilizando o modelo de Minimal API introduzido nas versões mais recentes do .NET.
+Este projeto foi desenvolvido com o objetivo de estudar conceitos essenciais de APIs RESTful utilizando Minimal APIs no .NET, além de explorar boas práticas modernas do ecossistema. Vamos explorar todos os conceitos possíveis durante o desenvolvimento e preencher as lacunas de conhecimento que julgar defasadas durante todo o processo.
 
-🎯 Objetivo
+## 🎯 Objetivo do Projeto
 
-O foco deste projeto é compreender, na prática:
+Aqui foram estudados e aplicados:
 
-- Os princípios de uma API RESTful;
-- A estrutura e o funcionamento de uma Minimal API no .NET;
-- Boas práticas de organização, versionamento e documentação (via Swagger);
-- Conceitos fundamentais de requisições HTTP, rotas (endpoints) e métodos CRUD.
+- Os princípios fundamentais de uma API RESTful;
+- Organização de rotas com MapGroup;
+- Persistência com Entity Framework Core + SQLite;
+- Diferença entre PUT, PATCH, GET, POST e DELETE;
+- Documentação com Swagger/OpenAPI;
+- Fluxo assíncrono com async/await e impacto em threads;
+- Uso de dotnet watch run para Hot Reload no desenvolvimento.
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- .NET (C#) — base principal da aplicação
-- ASP.NET Core Minimal API — para definição dos endpoints
-- Swagger / OpenAPI — para documentação e testes dos endpoints
-- Entity Framework Core — para persistência e acesso a dados
+- .NET 9 / C#
+- ASP.NET Core Minimal API
+- Swagger / Swashbuckle
+- Entity Framework Core (SQLite e Migrations)
 
-🚀 Execução
+## 📁 Estrutura Simplificada
+
+EstudosApiRest/
+ ├── Data/
+ │    └── AppDbContext.cs
+ ├── Models/
+ │    ├── PersonModel.cs
+ │    └── PersonRequest.cs
+ ├── Routes/
+ │    └── PersonRoute.cs
+ ├── Migrations/
+ ├── Program.cs
+ └── README.md
+
+## 🚀 Como Executar
 
 Clone o repositório:
+git clone https://github.com/seuusuario/EstudosApiRest.git
+cd EstudosApiRest
 
-- git clone https://github.com/seuusuario/EstudosApiRest.git
-  
-Acesse o diretório do projeto:
+Execute com Hot Reload (recomendado):
+dotnet watch run
 
-- cd EstudosApiRest
+Ou execute normalmente:
+dotnet run
 
-Execute o projeto:
+Acesse o Swagger:
+https://localhost:<porta>/swagger
 
--  dotnet run
+## 📚 O que foi aprendido neste projeto
 
-Acesse a API:
+Minimal APIs:
+- Como criar uma API sem controllers
+- Uso de MapGet, MapPost, MapPut, MapDelete, MapPatch
+- Agrupamento de rotas com MapGroup
+- Organização por módulos (/Routes/PersonRoute.cs)
 
-Swagger UI: https://localhost:<porta>/swagger (verifique sua porta para o localhost)
+REST e HTTP:
+- Diferença entre REST (arquitetura) e HTTP (protocolo)
+- Métodos HTTP e semântica correta
 
+PATCH vs PUT:
+- PUT reescreve o objeto completo
+- PATCH atualiza apenas campos enviados
 
-📚 Aprendizados
+EF Core + SQLite:
+- Configuração de AppDbContext
+- Migrations
+- Persistência em banco
+- Diferença entre Model e DTO
 
-Durante o desenvolvimento, o projeto aborda tópicos como:
+Async/Await + Threading:
+- await libera a thread
+- Melhor escalabilidade da API
 
-- Criação e configuração de uma Minimal API;
-- Mapeamento de rotas e endpoints;
-- Retornos padronizados (HTTP status codes);
+Desenvolvimento Produtivo:
+- dotnet watch run
+- Hot Reload vs Ctrl + R
+- Atualização do Swagger
+
+## 🔧 Endpoints
+
+Pessoas (/people):
+- GET /
+- GET /{id}
+- POST /
+- PUT /{id}
+- PATCH /{id}
+- DELETE /{id}
+
+## 🔮 Próximos Passos (opcionais):
+
+- Alterar o projeto para implementar o método HTTP Patch
+- Camadas Service/Repository
+- JSON Patch (RFC 6902)
+
+## Conclusão
+
+O projeto serviu como um laboratório completo para entender Minimal APIs, REST, Persistência, Async, Swagger, Hot Reload e organização moderna de APIs no .NET.
