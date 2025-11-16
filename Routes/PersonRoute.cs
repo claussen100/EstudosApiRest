@@ -1,4 +1,5 @@
-﻿using EstudosApiRest.Models;
+﻿using EstudosApiRest.Data;
+using EstudosApiRest.Models;
 
 namespace EstudosApiRest.Routes
 {
@@ -6,9 +7,14 @@ namespace EstudosApiRest.Routes
     {
         public static void PersonRoutes(this WebApplication app)
         {
-            app.MapGet("/person", () =>
+            var route = app.MapGroup("/person");
+
+            route.MapPost("/", 
+                async (PersonRequest req, AppDbContext context) =>
             {
-                return new PersonModel("Patrick Claussen");
+                var person = new PersonModel (req.name);
+                await context.AddAsync(person);
+                await context.SaveChangesAsync();
             });
         }
     }
