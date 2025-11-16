@@ -10,6 +10,7 @@ namespace EstudosApiRest.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=app.sqlite");
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }
